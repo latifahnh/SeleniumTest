@@ -34,9 +34,9 @@ time.sleep(5)
 username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='email']")))
 password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='pass']")))
 username.clear()
-username.send_keys("darilmayda41@gmail.com")
+username.send_keys("diisi_sendiri")
 password.clear()
-password.send_keys("Daril12345!")
+password.send_keys("diisi_sendiri")
 
 try:
     button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
