@@ -11,7 +11,7 @@ import os, time, csv, requests
 db = Connection()
 connection = db.connect()
 
-os.path.exists('/home/tsel-ai/deploy/api/public/crawl/socmed')
+os.path.exists('/data/images')
 
 #if not os.path.exists('Instagram'):
     #os.makedirs('Instagram')
@@ -22,11 +22,14 @@ options.add_argument('--no-sandbox')
 options.add_argument('--disable-gpu')
 options.add_argument("--disable-notifications")
 options.add_argument('--disable-setuid-sandbox')
+options.add_argument("--disable-dev-shm-usage")
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36")
 
-driver = webdriver.Chrome('/home/lat/chromedriver', chrome_options=options)
+#driver = webdriver.Chrome('/data/chromedriver', chrome_options=options)
+driver = webdriver.Chrome(executable_path='chromedriver', options=options)
+#driver = webdriver.Chrome(executable_path='chromedriver')
 #driver = webdriver.Chrome('chromedriver_win32/chromedriver.exe', chrome_options=options)
-driver.get("https://www.instagram.com/accounts/login/")
+driver.get("https://instagram.com/accounts/login/")
 
 username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='username']")))
 password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='password']")))
@@ -169,7 +172,7 @@ for linkPosted in listPost:
 
             #filename = f'Instagram/{akunName}_{currentTime}.jpg'
             #filename = 'Instagram/{}_{}.jpg'.format(akunName, currentTime)
-            filename = '/home/tsel-ai/deploy/api/public/crawl/socmed/{}_{}.jpg'.format(akunName, currentTime)
+            filename = '/data/images/{}_{}.jpg'.format(akunName, currentTime)
             filenames = '{}_{}.jpg'.format(akunName, currentTime)
 
 
@@ -216,7 +219,7 @@ for linkPosted in listPost:
                     akunNameSplit = '_'.join(akunName)
 
                     #filename = f'Instagram/{akunName}_{currentTime}.jpg'
-                    filename = '/home/tsel-ai/deploy/api/public/crawl/socmed/{}_{}.jpg'.format(akunName, currentTime)
+                    filename = '/data/images/{}_{}.jpg'.format(akunName, currentTime)
                     filenames = '{}_{}.jpg'.format(akunName, currentTime)
 
                     with open(filename, 'wb') as handle:
@@ -260,7 +263,7 @@ for linkPosted in listPost:
                     akunNameSplit = '_'.join(akunName)
 
                     #filename = f'Instagram/{akunName}_{currentTime}.jpg'
-                    filename = '/home/tsel-ai/deploy/api/public/crawl/socmed/{}_{}.jpg'.format(akunName, currentTime)
+                    filename = '/data/images/{}_{}.jpg'.format(akunName, currentTime)
                     filenames = '{}_{}.jpg'.format(akunName, currentTime)
 
                     with open(filename, 'wb') as handle:
@@ -302,7 +305,7 @@ for linkPosted in listPost:
                     akunNameSplit = '_'.join(akunName)
 
                     #filename = f'Instagram/{akunName}_{currentTime}.jpg'
-                    filename = '/home/tsel-ai/deploy/api/public/crawl/socmed/{}_{}.jpg'.format(akunName, currentTime)
+                    filename = '/data/images/{}_{}.jpg'.format(akunName, currentTime)
                     filenames = '{}_{}.jpg'.format(akunName, currentTime)
 
                     with open(filename, 'wb') as handle:
