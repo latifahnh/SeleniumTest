@@ -32,10 +32,8 @@ username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SE
 password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='password']")))
 username.clear()
 password.clear()
-#username.send_keys("scrapingnew")
-#password.send_keys("!@#scraping123")
-username.send_keys("akuncoba2086")
-password.send_keys("password123!")
+username.send_keys("isi sendiri")
+password.send_keys("isi sendiri")
 WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
 print('------------ start ------------ ')
 try:
